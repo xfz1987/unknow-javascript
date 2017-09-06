@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" type="text/html" charset="utf-8"/>
+		<title>将一个字符串的首字母变为大写</title>
+	</head>
+
+	<body>
+
+		<script>
+			var str = "you and i";
+			//var arr = str.split(" ");
+			var arr = str.split(/\s+/);//防止多连续空格时，分出来的东西是undefined，出错
+			for(var i=0,len=arr.length;i<len;i++){
+				arr[i] = arr[i][0].toUpperCase() + arr[i].substring(1);
+			}
+			str = arr.join(" ");
+			console.log(str);
+		</script>
+		
+	</body>
+</html>

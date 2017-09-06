@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" type="text/html" charset="utf-8"/>
+		<title>Unicode转码与解码</title>
+	</head>
+
+	<body>
+		UNICODE转码:<input type="text" id="str_text" onblur="toUnicode(this.value)"/><span id="s_unicode"></span><br/>
+		UNICODE解码:<input type="text" id="uni_text" onblur="unicodeTo(this.value)"/><span id="s_str"></span><br/>
+
+		<script>
+			//每五位一个字、数字、字母、符号
+			function toUnicode(str){
+				for(var i=0,arry=[],len=str.length;i<len;i++){
+					var temp= str.charCodeAt(i);
+					/*
+					if(temp <10000){
+						temp += 10000;
+						temp = 0 + (temp + "").substring(1);
+					}
+					*/
+					arry.push(temp<10000?(0 + (temp+10000+"").substring(1)):temp);
+				}
+				document.getElementById("s_unicode").innerHTML = arry.join("");
+			}
+
+			function unicodeTo(str){
+				for(var i=0,arr=[],len=str.length;i<len;i+=5){
+					var code = str.substring(i,i+5);
+					arr.push(String.fromCharCode(code));
+				}
+				document.getElementById("s_str").innerHTML = arr.join("");
+			}
+		</script>
+
+
+
+	</body>
+</html>

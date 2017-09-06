@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" type="text/html" charset="utf-8"/>
+		<title>XXX</title>
+	</head>
+
+	<body>
+		<script>
+			var arr = ["一","二","三"];
+			function iterator(array){
+				var nextIndex = 0;
+				return{
+					next : function(){
+						return nextIndex < array.length ? {value:array[nextIndex++],done:false} :
+						{done:true};
+					}
+				}
+			}
+			var it = iterator(arr);
+			console.log(it.next().value);
+			console.log(it.next().value);
+			console.log(it.next().value);
+			console.log(it.next().value);
+
+		</script>
+	</body>
+</html>

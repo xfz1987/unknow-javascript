@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" type="text/html" charset="utf-8"/>
+		<title>将一个十进制数转换成二进制数</title>
+	</head>
+
+	<body>
+		<script>
+			var num = 28,
+				yu = 0
+				bin = [];
+			while(num != 0)
+			{
+				bin.unshift(num%2);
+				num = parseInt(num/2);
+			}
+			var str = bin.join("");
+			console.log(str);
+
+		</script>
+	</body>
+</html>

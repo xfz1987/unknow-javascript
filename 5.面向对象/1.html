@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function Book(title, price){
+			if(this instanceof Book){
+				this.title = title;
+				this.price = price;
+			}else{
+				return new Book(title, price);
+			}
+			
+		}
+		Book.prototype = {
+			getTitle : function(){
+				console.log(this.title);
+			},
+			getPrice : function(){
+				console.log(this.price);
+			}
+		};
+		var book = new Book('js', 59);
+		function Zi(title,price,type){
+			// Book.call(this, title, price);
+			this.title = title;
+			this.price = price;
+			this.type = type;
+		}
+		
+		Zi.prototype = Object.create(Book.prototype);
+		Zi.prototype.getAct = function(){
+			console.log(this.type);
+		};
+		var z = new Zi('NBA',29,'体育');
+		console.log(book);
+		console.log(z);
+		z.getAct();//
+		z.getTitle();//
+	</script>
+</body>
+</html>

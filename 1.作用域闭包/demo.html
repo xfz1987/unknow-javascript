@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function foo(){
+    		function bar(a){
+    		    var i = 3;//修改了for循环所属作用域中的i
+    		    console.log(a + i);
+    		}
+    		for(var i=0;i<10;i++){
+    		    bar(i * 2); // 无限循环了
+    		}
+		}
+		foo();//5 7 9 11 13 15 17 19 21
+
+		console.log('--------------------------------')
+		var a = 2;
+		function foo(){
+		    // a = 3;
+		    var a = 3;
+		    console.log(a);//3
+		}
+		foo();
+		console.log(a);//[3] 2 
+	</script>
+</body>
+</html>

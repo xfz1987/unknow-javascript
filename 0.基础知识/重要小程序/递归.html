@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" type="text/html" charset="utf-8"/>
+		<title>递归阶乘</title>
+	</head>
+
+	<body>
+		<script>
+			function factorial(num){
+				if(num <= 1){
+					return 1;
+				}else{
+					return num * factorial(num - 1);
+				}
+			}
+			var anotherFactorial = factorial;
+			factorial = null;
+			console.log(anotherFactorial(4));//报错，因为factorial = null;
+		</script>
+
+		<!--可以解决上面的问题-->
+		<script>
+			function factorial(num){
+				if(num <= 1){
+					return 1;
+				}else{//指向正在执行的函数的指针，用于实现对函数的递归调用
+					return num * arguments.callee(num - 1);
+				}
+			}	
+			var anotherFactorial = factorial;
+			factorial = null;
+			console.log(anotherFactorial(4));//4*3*2*1
+		</script>
+		
+		<!--在严格模式下，不能使用arguments.callee-->
+		<script>
+			var factorial = function f(num){
+				if(num <= 1){
+					return 1;
+				}else{
+					return num * f(num - 1);
+				}
+			};
+			console.log(factorial(6));
+		</script>
+	</body>
+</html>

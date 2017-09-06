@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" type="text/html" charset="utf-8"/>
+		<title>统计一段字符串中英文、中文、数字及其他字符的数量</title>
+	</head>
+
+	<body>
+		<script>
+		    /*unicode范围: 
+			  数字(0~9):48~57
+			  字母(A~Z,a~z):65~90,97~122
+			  汉字:19968~40869
+			  其它字符:不在以上范围
+			*/
+			var str = "选购AppleCare+,延保2年";			
+			for(var i=0,en=0,n=0,chs=0,other=0,len=str.length;i<len;i++){
+				var num = str.charCodeAt(i);
+				if(num >= 19968 && num <= 40869){//汉字
+					chs++;
+				}else if((num >= 65 && num< 90) || (num >= 97 && num< 122)){//字母
+					en++;
+				}else if(num >= 48 && num < 57){//数字
+					n++;
+				}else{//其它字符
+					other++;
+				}	
+			}			
+			console.log("汉字:" + chs + "，英文:" + en + "，数字:" + n + "，其它字符:" + other);
+		</script>		
+	</body>
+</html>

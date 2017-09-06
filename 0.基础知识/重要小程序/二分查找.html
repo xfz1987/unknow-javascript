@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    /**
+     * 二分查找
+     * @param  {[type]} array    目标数组
+     * @param  {[type]} target 目标元素
+     * @return 如果不存在则为-1
+     * 【说明】二分查找又称折半查找，它是一种效率较高的查找方法。
+　　 * 【要求】：1.必须采用顺序存储结构 2.必须按关键字大小有序排列。
+     */
+    function binarySearch(array,target){
+        //1.排序
+        var arr = array.sort(function(a,b){return a-b;})
+
+        //2.查找
+        var start = 0,
+            end = arr.length-1;
+
+        while(start <= end){
+            var middleIndex = parseInt((start+end)/2);
+            if(target == arr[middleIndex]){
+                return middleIndex;
+            }else if(target > arr[middleIndex]){
+                start = middleIndex + 1;
+            }else{
+                end = middleIndex - 1;
+            }
+        }
+        return -1;
+    }
+    console.log(binarySearch([1,5,99,6],5));
+
+    </script>
+</body>
+</html>

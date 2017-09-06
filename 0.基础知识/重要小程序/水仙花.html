@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" type="text/html" charset="utf-8"/>
+		<title>XXX</title>
+	</head>
+
+	<body>
+		<script>
+			console.log("-----水仙花:153=1*1*1+5*5*5+ 3*3*3---------");			
+			for(var i=100;i<=999;i++)
+			{
+				var b = parseInt(i/100);
+				var s = parseInt((i%100)/10);
+				var g = parseInt(i%10);
+				var temp = b*b*b + s*s*s + g*g*g;
+				if(temp == i)
+				{
+					console.log(i);
+				}
+			}
+		</script>
+	</body>
+</html>

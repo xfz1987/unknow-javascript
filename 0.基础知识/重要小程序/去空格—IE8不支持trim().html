@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" type="text/html" charset="utf-8"/>
+		<title>去空格(IE8不支持trim())</title>
+	</head>
+
+	<body>
+		<script>
+			/*去两边空格*/
+			function trim(str){
+				var reg = /(^\s+)|(\s+$)/g;
+				//var reg = /(\s\b)|(\b\s)/g;
+				return str.replace(reg,"");
+			}
+			 trim(" 4a7B ");
+
+			/*去左边空格*/
+			function lTrim(str){
+				var reg=/^\s+/;
+				return str.replace(reg,"");
+			}
+
+			/*去右边空格*/
+			function rTrim(str){
+				var reg=/\s+$/;
+				return str.replace(reg,"");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" type="text/html" charset="utf-8"/>
+		<title>取最大值</title>
+	</head>
+
+	<body>
+		<script>
+			var s1 = 75,
+			    s2 = 90,
+				s3 = 80;
+			console.log(Math.max(s1,s2,s3));
+			
+			/*取数组中的最大值:通用用法*/
+			var arr = [2,4,6,7,3,9,8];
+			var max = Math.max.apply(Math,arr);
+			console.log(max);
+		</script>
+	</body>
+</html>

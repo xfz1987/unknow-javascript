@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" type="text/html" charset="utf-8"/>
+		<title>获取HTML中所有链接属性的值</title>
+	</head>
+
+	<body>
+		<script>
+			 function getURL(str){
+				var reg = /<a(.+?)href\s?=\s?['"](.*?)['"](.*?)\/?>/ig;
+				var arr = [];
+				while([arr = reg.exec(str)] != null){
+					console(arr[0]);
+					console(RegExp.$2);
+				}
+			 }
+		</script>
+	</body>
+</html>

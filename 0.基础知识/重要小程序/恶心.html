@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		function test(){
+			var array = Array.prototype.slice.call(arguments,1); 
+			console.log(array);
+		};
+
+		test('1','a');
+
+		var start = new Date(); 
+		setTimeout(function(){
+			var end = new Date(); 
+			console.log(end-start);
+		},2000);
+
+		function padding(num,len){
+			var arr = (num + '').split('');
+			var arrLength = arr.length;
+			if(arrLength<len){
+				for(var i=0,l=len-arrLength;i<l;i++){
+					arr.unshift('0');
+				}
+			}
+			return arr.join('');
+		}
+
+		console.log(padding(12,4));
+
+
+	</script>
+</body>
+</html>

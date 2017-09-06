@@ -1,0 +1,16 @@
+返回查找到的关键字的索引数组
+<script>
+    function findKeyWords(str,keyWords){
+	//正向查找
+	var index = -1,
+	    result = [];
+	while((index = str.indexOf(keyWords,index+1)) != -1){
+		result.push(index); 
+	}
+	/*
+	//反向查找
+	index = str.length;
+	while((index = str.lastIndexOf(keyWords,index-1) != -1))
+	*/
+	return result;
+</script>
